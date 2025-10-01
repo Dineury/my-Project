@@ -4,26 +4,101 @@ display: flex;
   background-color: grey;
 }
 
+
+#console-body {
+  background-color: #4b2e2e;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+
+#grid-wrapper {
+    display: flex;
+  justify-content: center; 
+  align-items: center;    
+  min-height:75vh;           
+  min-width: 90vw; 
+}
 #grid-body {
-  padding-top: 150px;
-  justify-content: center;
-   display: grid;
-  grid-template-columns: repeat(20, 20px);
-  grid-template-rows: repeat(21, 20px);
-  background-color: rgb(17, 139, 58);
+  border-radius: 5px;
+  margin-bottom: 100px;
+  padding-right: 1px;
+   display: inline-grid;
+  grid-template-columns: repeat(15, 20px);
+  grid-template-rows: repeat(15.5, 20px);
+  background-color: #355e3b;
+}
+/* Corners radius */
+#grid-body div:nth-child(1) {
+  border-top-left-radius: 5px;
+}
+
+#grid-body div:nth-child(15) {
+  border-top-right-radius: 5px;
+}
+
+#grid-body div:nth-child(211) {
+  border-bottom-left-radius: 5px;
+}
+
+#grid-body div:nth-child(225) {
+  border-bottom-right-radius: 5px;
 }
 
 .cell {
-  border: 1px solid #ccc;
+  
   width: 20px;
   height: 20px;
 }
 .cell.snake {
-  background: rgb(138, 4, 4);
+  border-radius: 7px;
+  background: #9acd32;
+}
+
+.snake.head {
+  position: relative;   
+  border-radius: 40%;
+}
+
+.snake.head::before {
+   content: "";
+  position: absolute;
+  top: 20%;      
+  margin-left: 15%;               
+  width: 8px;
+  height: 8px;
+  background: rgb(255, 255, 255);  
+  border-radius: 50%;
+}
+.snake.head::after {
+  content: "";
+  position: absolute;
+ 
+  top: 30%;   
+  width: 5px;
+  height: 5px;
+  background: rgb(0, 0, 0);    
+  border-radius: 50%;
+}
+
+.snake.head::before {
+  left: 25%;             
+}
+.snake.head::after {
+  right: 25%;            
+}
+
+.cell.tail {
+      align-self: center;
+      height: 15px;
 }
 
 #restart-Button{
- justify-self: anchor-center;
- background-color: rgb(78, 182, 230);
+ position: relative;
+ border-radius: 18px;
+    align-self: auto;
+ background-color: rgb(9, 179, 231);
 
 }

@@ -13,7 +13,7 @@ function App() {
   ])
   const [food, setFood] = useState({row: -1 , col: -1})
   
-  const GRID_SIZE = 20; 
+  const GRID_SIZE = 15; 
   
   const opposites = {
     "LEFT": "RIGHT",
@@ -132,8 +132,11 @@ return (
         <div id='header'>
           <h1>Snake game</h1>
         </div>
-        <Grid snake={snake} food={food}/>
-         <button id='restart-Button' onClick={resetGame}>Restart</button>
+         <button id='restart-Button' onClick={resetGame} >Restart</button> 
+         <div id="grid-wrapper" >
+        <Grid snake={snake} food={food} />
+         </div>
+        
       </div>
 
     </>

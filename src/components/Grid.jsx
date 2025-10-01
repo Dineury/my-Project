@@ -1,28 +1,55 @@
 
 
 const Grid = ({ snake, food }) => {
-let grid = 20
+let grid = 15
 let cells = []
 for(let row = 0; row< grid; row++) {
     for(let col = 0; col < grid; col++ ){
         let isSnake = false
+        let isHead = false
+        let isTail = false
         for(let i = 0; i < snake.length; i++){
-            if(snake[i].row === row && snake[i].col === col){
-                isSnake = true
-                break
-            }
+            if (snake[i].row === row && snake[i].col === col) {
+    isSnake = true
+    if (i === 0) isHead = true  
+    if (i === snake.length - 1) isTail = true  
+    break
+  }
         }
-        cells.push((row === food.row && col === food.col ? <div key={row + '-' + col} className="cell food" ><img height="20px" src="https://em-content.zobj.net/source/apple/419/red-apple_1f34e.png"/></div>
-            : <div key={row + '-' + col} 
-            className={isSnake ? "cell snake" : row === food.row && col === food.col ? "cell food" : "cell"}></div>
-        ))
-           
+       if (isHead) {
+  cells.push(
+    <div key={row + '-' + col} className="cell snake head"></div>
+  )
+} else if (isTail) {
+  cells.push(
+    <div key={row + '-' + col} className="cell snake tail"></div>
+  )
+} else if (isSnake) {
+  cells.push(
+    <div key={row + '-' + col} className="cell snake"></div>
+  )
+} else if (row === food.row && col === food.col) {
+  cells.push(
+    <div key={row + '-' + col} className="cell food">
+      <img
+        height="20px"
+        src="https://em-content.zobj.net/source/apple/419/red-apple_1f34e.png"
+      />
+    </div>
+  )
+} else {
+  cells.push(
+    <div key={row + '-' + col} className="cell"></div>
+  )
+}         
     }
 }
  
    return(
-    <div id="grid-body">
-        {cells}   
+    <div id="console-body">
+        <div id="grid-body" >
+        {cells}  
+        </div>
  </div>
     
    )
