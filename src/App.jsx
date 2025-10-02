@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Grid from  './components/Grid'
-
 function App() {
-  const [isGameOver, setIsGameOver] = useState(false)
-  const [snakeMoving, setSnakeMoving] = useState("RIGHT")
+  const [snakeMoving, setSnakeMoving] = useState("")
   const [canChangeDirection, setCanChangeDirection] = useState(true);
   const [snake, setSnake] =  useState([
     { row: 10, col: 10 },
@@ -12,7 +10,8 @@ function App() {
     { row: 10, col: 8 }
   ])
   const [food, setFood] = useState({row: -1 , col: -1})
-  
+ const [gameState, setGameState] = useState("start"); 
+  const [score, setScore] = useState(0)
   const GRID_SIZE = 15; 
   
   const opposites = {
@@ -21,6 +20,24 @@ function App() {
     "UP": "DOWN",
   "DOWN": "UP"
 }
+
+const handleGameButton = () => {
+  setSnake([
+    { row: 10, col: 10 },
+    { row: 10, col: 9 },
+    { row: 10, col: 8 }
+  ]);
+  setSnakeMoving("RIGHT"); 
+  setCanChangeDirection(true);
+  setScore(0)
+  const row = Math.floor(Math.random() * GRID_SIZE);
+  const col = Math.floor(Math.random() * GRID_SIZE);
+  setFood({ row, col });
+
+  setGameState("playing");
+};
+
+
 
 useEffect(() => {
   const row = Math.floor(Math.random() * GRID_SIZE)
@@ -66,19 +83,6 @@ useEffect(() => {
 };
 
 
-const resetGame = () => {
-  setSnake([
-    { row: 10, col: 10 },
-    { row: 10, col: 9 },
-    { row: 10, col: 8 }
-  ]);
-  setSnakeMoving("RIGHT");
-  setIsGameOver(false);
-
-  const row = Math.floor(Math.random() * GRID_SIZE);
-  const col = Math.floor(Math.random() * GRID_SIZE);
-  setFood({ row, col });
-};
 
 
 useEffect(() => {
@@ -89,22 +93,24 @@ useEffect(() => {
 },)
 
 
+
 useEffect(() => {
-  if(isGameOver) return;
+  if(gameState !== 'playing') return;
 const interval = setInterval(() => {
   setSnake(prevSnake => {
     const newHead = getNewHead(prevSnake[0], snakeMoving)
     if(newHead.row < 0 || newHead.row >= GRID_SIZE ||
         newHead.col < 0 || newHead.col >= GRID_SIZE) {
-          setIsGameOver(true)
-          console.log("Game over!");
+          setGameState("gameover")
           return prevSnake
         }
-setCanChangeDirection(true);
-    if(newHead.row === food.row && newHead.col === food.col) {
-      const row = Math.floor(Math.random() * GRID_SIZE)
-      const col = Math.floor(Math.random() * GRID_SIZE)
-      setFood({row,col})
+        setCanChangeDirection(true);
+        if(newHead.row === food.row && newHead.col === food.col) {
+      
+          const row = Math.floor(Math.random() * GRID_SIZE)
+          const col = Math.floor(Math.random() * GRID_SIZE)
+          setFood({row,col})
+           setScore(prev =>  prev + 1)
       return [newHead, ...prevSnake]
     } 
     let collided = false
@@ -115,26 +121,27 @@ setCanChangeDirection(true);
       }
     }
        if (collided) {
-    console.log("Game over!");
-    setIsGameOver(true)
+   
+    setGameState('gameover')
     return prevSnake
   }
       return [ newHead, ...prevSnake.slice(0, -1)]
   })
 }, 500);
 return () => clearInterval(interval)
-},[snakeMoving, isGameOver, food ])
+},[snakeMoving, gameState, food])
 
 
 return (
     <>
       <div id='main-div'>
-        <div id='header'>
-          <h1>Snake game</h1>
-        </div>
-         <button id='restart-Button' onClick={resetGame} >Restart</button> 
+       <div id="header">
+  <h1>Snake game</h1>
+</div>
+         
          <div id="grid-wrapper" >
-        <Grid snake={snake} food={food} />
+        <Grid snake={snake} food={food} gameState={gameState} gameHandler={handleGameButton} score={score}/>
+        
          </div>
         
       </div>

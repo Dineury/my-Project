@@ -1,6 +1,7 @@
+import ConsoleHud from './ConsoleHud'
 
 
-const Grid = ({ snake, food }) => {
+const Grid = ({ snake, food, gameHandler, gameState, score }) => {
 let grid = 15
 let cells = []
 for(let row = 0; row< grid; row++) {
@@ -21,10 +22,19 @@ for(let row = 0; row< grid; row++) {
     <div key={row + '-' + col} className="cell snake head"></div>
   )
 } else if (isTail) {
+  const tail = snake[snake.length - 1];
+  const beforeTail = snake[snake.length - 2];
+  const tailClass =
+    tail.row !== beforeTail.row ? "tail-vertical" : "tail-horizontal";
+
   cells.push(
-    <div key={row + '-' + col} className="cell snake tail"></div>
-  )
-} else if (isSnake) {
+    <div
+      key={row + "-" + col}
+      className={`cell snake ${tailClass}`}
+    ></div>
+  );
+}
+ else if (isSnake) {
   cells.push(
     <div key={row + '-' + col} className="cell snake"></div>
   )
@@ -50,6 +60,7 @@ for(let row = 0; row< grid; row++) {
         <div id="grid-body" >
         {cells}  
         </div>
+        <ConsoleHud gameHandler={gameHandler} gameState={gameState} score={score}/>
  </div>
     
    )

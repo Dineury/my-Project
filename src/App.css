@@ -12,7 +12,9 @@ display: flex;
   padding: 10px;
 }
 
-
+#gameOver {
+  color: rgb(173, 4, 4);
+}
 
 #grid-wrapper {
     display: flex;
@@ -23,11 +25,11 @@ display: flex;
 }
 #grid-body {
   border-radius: 5px;
-  margin-bottom: 100px;
+ 
   padding-right: 1px;
    display: inline-grid;
   grid-template-columns: repeat(15, 20px);
-  grid-template-rows: repeat(15.5, 20px);
+  grid-template-rows: repeat(15, 20px);
   background-color: #355e3b;
 }
 /* Corners radius */
@@ -59,7 +61,7 @@ display: flex;
 
 .snake.head {
   position: relative;   
-  border-radius: 40%;
+  border-radius: 43%;
 }
 
 .snake.head::before {
@@ -90,15 +92,31 @@ display: flex;
   right: 25%;            
 }
 
-.cell.tail {
-      align-self: center;
-      height: 15px;
+.tail-vertical {
+  width: 14px;      /* slightly smaller than 20px */  
+  margin: auto;     /* centers both vertically and horizontally */
 }
 
-#restart-Button{
- position: relative;
+.tail-horizontal {
+ 
+  height: 14px;     /* slightly smaller than 20px */
+  border-radius: 10px;
+  margin: auto;
+}
+
+.consoleHud {
+ margin-top: 8px;
+ border-style: inset ;
+ border-color: #442f2f;
+  padding: 5%;
+margin-bottom: 15%;
+    justify-self: center;
+  background-color: #3a2323;
+  }
+
+#start-button {
+  margin: 20px;
+background-color: darkgray;
  border-radius: 18px;
     align-self: auto;
- background-color: rgb(9, 179, 231);
-
 }
