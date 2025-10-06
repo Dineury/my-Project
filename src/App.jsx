@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Grid from  './components/Grid'
+import Instructions from './components/instructions'
+
 function App() {
   const [snakeMoving, setSnakeMoving] = useState("")
   const [canChangeDirection, setCanChangeDirection] = useState(true);
@@ -36,14 +38,6 @@ const handleGameButton = () => {
 
   setGameState("playing");
 };
-
-
-
-useEffect(() => {
-  const row = Math.floor(Math.random() * GRID_SIZE)
-  const col = Math.floor(Math.random() * GRID_SIZE)
-  setFood({row,col})
-},[])
 
   const getNewHead = (head, direction) => {
     let newHead = {row: head.row, col: head.col}
@@ -83,8 +77,6 @@ useEffect(() => {
 };
 
 
-
-
 useEffect(() => {
   const handleKey = (e) => controlDirection(e)
   window.addEventListener("keydown", handleKey)
@@ -107,9 +99,12 @@ const interval = setInterval(() => {
         setCanChangeDirection(true);
         if(newHead.row === food.row && newHead.col === food.col) {
       
-          const row = Math.floor(Math.random() * GRID_SIZE)
+         if(snake.row !== food.row && snake.col !== food.col) {
+           const row = Math.floor(Math.random() * GRID_SIZE)
           const col = Math.floor(Math.random() * GRID_SIZE)
           setFood({row,col})
+         }
+
            setScore(prev =>  prev + 1)
       return [newHead, ...prevSnake]
     } 
@@ -121,7 +116,6 @@ const interval = setInterval(() => {
       }
     }
        if (collided) {
-   
     setGameState('gameover')
     return prevSnake
   }
@@ -129,7 +123,7 @@ const interval = setInterval(() => {
   })
 }, 500);
 return () => clearInterval(interval)
-},[snakeMoving, gameState, food])
+},[snakeMoving, gameState, food, snake])
 
 
 return (
@@ -143,7 +137,7 @@ return (
         <Grid snake={snake} food={food} gameState={gameState} gameHandler={handleGameButton} score={score}/>
         
          </div>
-        
+        <Instructions />
       </div>
 
     </>
