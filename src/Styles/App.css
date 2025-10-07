@@ -1,0 +1,56 @@
+#header{
+display: flex;
+  font-size: 1.2em;
+  background-color: grey;
+}
+
+.cell.snake {
+  border-radius: 7px;
+  background: #9acd32;
+}
+
+.snake.head {
+  position: relative;   
+  border-radius: 43%;
+}
+
+.snake.head::before {
+   content: "";
+  position: absolute;
+  top: 20%;      
+  margin-left: 15%;               
+  width: 8px;
+  height: 8px;
+  background: rgb(255, 255, 255);  
+  border-radius: 50%;
+}
+.snake.head::after {
+  content: "";
+  position: absolute;
+ 
+  top: 30%;   
+  width: 5px;
+  height: 5px;
+  background: rgb(0, 0, 0);    
+  border-radius: 50%;
+}
+
+.snake.head::before {
+  left: 25%;             
+}
+.snake.head::after {
+  right: 25%;            
+}
+
+.tail-vertical {
+  width: 14px;    
+  margin: auto;     
+}
+
+.tail-horizontal {
+ 
+  height: 14px;     
+  border-radius: 10px;
+  margin: auto;
+}
+

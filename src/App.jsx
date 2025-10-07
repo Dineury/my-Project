@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import './App.css'
+import './Styles/App.css'
+import './Styles/Console.css'
 import Grid from  './components/Grid'
 import Instructions from './components/instructions'
 
@@ -136,8 +137,8 @@ return (
          <div id="grid-wrapper" >
         <Grid snake={snake} food={food} gameState={gameState} gameHandler={handleGameButton} score={score}/>
         
-         </div>
         <Instructions />
+         </div>
       </div>
 
     </>
