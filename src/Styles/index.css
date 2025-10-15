@@ -1,3 +1,8 @@
+body {
+margin-top: 0.1rem;
+margin-left: 0.3rem;
+margin-right: 0.3rem;
+}
 :root {
       background-attachment: fixed;
       background-image: 
@@ -7,3 +12,30 @@
 
 }
 
+#header{
+justify-content: center; 
+  background-color: grey;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, #8B94A3, #7DCD85)
+}
+
+#title-text {
+  -webkit-text-stroke: rgba(0, 0, 0, 0.589) 1px;
+  text-shadow: #a4e60a  10px 3px 6px ;
+  position: relative;
+  display: inline-block;
+  padding: 1px 7px;
+  color: rgb(11, 180, 34);
+background-color: color-mix(in xyz, #7A306C 100%, #7D387D 30%);
+  border: 6px solid; /* border thickness */
+  border-image: repeating-linear-gradient(
+    -60deg,
+    rgb(6, 136, 6) 0 10px,
+    rgb(104, 8, 8) 10px 20px
+  ) 15; /* scale of the pattern */
+  border-radius: 12px;
+}

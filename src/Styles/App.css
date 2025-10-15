@@ -1,8 +1,3 @@
-#header{
-display: flex;
-  font-size: 1.2em;
-  background-color: grey;
-}
 
 .cell.snake {
   border-radius: 7px;

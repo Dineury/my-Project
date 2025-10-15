@@ -131,7 +131,8 @@ return (
     <>
       <div id='main-div'>
        <div id="header">
-  <h1>Snake game</h1>
+  <h1>
+    <span id='title-text'>Snake Game</span></h1>
 </div>
          
          <div id="grid-wrapper" >
