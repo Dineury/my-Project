@@ -1,5 +1,4 @@
 #console-body {
-      margin-right: auto;
   border: 2px solid;
   border-color: black;
   background-color: #5a1213;
@@ -13,18 +12,21 @@
 }
 
 #gameOver {
-
   font-size: 25px;
  -webkit-text-stroke: #920207 1.4px;
   color: rgb(0, 0, 0);
 }
 
 #grid-wrapper {
-    display: flex;
-  justify-content: center; 
-  align-items: center; 
-    background-size: cover;
+     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+        min-height: 80vh;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
 }
+
 
 #grid-body {
   border: 5px inset;
@@ -64,6 +66,7 @@ margin-bottom: 15%;
   }
 
 #start-button {
+
    text-shadow: #000000 4px 1px 4px;
   color:  #cec8d1;
      font-size: larger;
@@ -73,4 +76,13 @@ font-family: math;
 background-color: #21824D;
  border-radius: 18px;
     align-self: auto;
+}
+
+#start-button {
+  transform-origin: center;
+   transition: transform .18s ease; 
+}
+
+#start-button:hover {
+  transform: scale(1.1);
 }

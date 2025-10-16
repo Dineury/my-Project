@@ -55,7 +55,7 @@
 
 .main-instructions-txt {
       -webkit-text-stroke-width: thin;
-      color: #f4f3ee;
+      color: #cec8d1;
 }
 
 #instructions {
@@ -69,6 +69,8 @@
 }
 
 #controls-div {
+      border-radius: 47px;
+      margin-left: 11px;
       padding: 7px;
     width: 10em;
     height: 20em;

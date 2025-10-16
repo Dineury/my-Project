@@ -9,10 +9,15 @@ margin-right: 0.3rem;
       background-image: 
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
       url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-      
-
+ background-size: cover;
+  min-height: 100vh;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 #header {
   display: flex;
   justify-content: center;
@@ -38,12 +43,67 @@ margin-right: 0.3rem;
   border-radius: 0;      
 }
 
+#contacts {
+  margin-top: 3em;
+}
+
+.made-by-contact {
+      padding-right: 17px;
+    padding-left: 17px;
+    justify-self: center;
+  margin-top: 15px;
+  border-radius: 6px;
+  background-color: #487a69;
+}
+
+.contact-text {
+  color: #cec8d1;
+  padding: 1px;
+  border-radius: 5px;
+}
+
 #contact-div {
-align-self: flex-end;
-    margin-right: auto;
-  height: 20em;
-  width: 10em;
-  background-color: #444446;
-  color: white;
-  border-radius: 8px;
+      margin-right: 11px;
+      padding: 7px;
+    width: 10em;
+    height: 20em;
+      margin-top: 10em;
+align-self: self-start;
+    background-color: #2b4e32;
+    color: rgb(0, 0, 0);
+    border-radius: 47px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: #cec8d1;               
+  text-decoration: none;
+  transition: color .2s ease;    
+}
+
+.github-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform .18s ease; 
+  transform-origin: center;
+}
+
+#github-span {
+  display: inline-block;               
+  transition: transform .18s ease;    
+}
+
+
+.github-link:hover {
+  color: #ccc;        
+}
+
+.github-link:hover svg {
+  transform: scale(1.12);
+}
+
+.github-link:hover #github-span {
+  transform: scale(1.06);
 }
