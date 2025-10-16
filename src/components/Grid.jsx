@@ -23,9 +23,12 @@ for(let row = 0; row< grid; row++) {
   )
 } else if (isTail) {
   const tail = snake[snake.length - 1];
-  const beforeTail = snake[snake.length - 2];
-  const tailClass =
-    tail.row !== beforeTail.row ? "tail-vertical" : "tail-horizontal";
+  const beforeTail = snake.length > 1 ? snake[snake.length - 2] : null;
+  let tailClass = "";
+
+  if (beforeTail) {
+    tailClass = tail.row !== beforeTail.row ? "tail-vertical" : "tail-horizontal";
+  }
 
   cells.push(
     <div
@@ -34,6 +37,7 @@ for(let row = 0; row< grid; row++) {
     ></div>
   );
 }
+
  else if (isSnake) {
   cells.push(
     <div key={row + '-' + col} className="cell snake"></div>
@@ -49,6 +53,7 @@ for(let row = 0; row< grid; row++) {
   )
 } else {
   cells.push(
+    
     <div key={row + '-' + col} className="cell"></div>
   )
 }         

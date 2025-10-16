@@ -1,31 +1,40 @@
 #console-body {
-  background-color: #4b2e2e;
+      margin-right: auto;
+  border: 2px solid;
+  border-color: black;
+  background-color: #5a1213;
   padding-bottom: 50px;
   border-radius: 10px;
   padding: 10px;
 }
 
+.score {
+  color: #D3D0CB;
+}
+
 #gameOver {
-  color: rgb(173, 4, 4);
+
+  font-size: 25px;
+ -webkit-text-stroke: #920207 1.4px;
+  color: rgb(0, 0, 0);
 }
 
 #grid-wrapper {
- 
     display: flex;
   justify-content: center; 
-  align-items: center;    
-  min-height:75vh;           
-  min-width: 90vw; 
+  align-items: center; 
     background-size: cover;
 }
 
 #grid-body {
+  border: 5px inset;
+  border-color: black;
   border-radius: 5px;
   padding-right: 1px;
    display: inline-grid;
   grid-template-columns: repeat(15, 20px);
   grid-template-rows: repeat(15, 20px);
-  background-color: #355e3b;
+  background-color: #1f5832;
 }
 
 /* Corners radius */
@@ -44,26 +53,24 @@
 #grid-body div:nth-child(225) {
   border-bottom-right-radius: 5px;
 }
-
-.cell {
-  
-  width: 20px;
-  height: 20px;
-}
-
 .consoleHud {
  margin-top: 8px;
  border-style: inset ;
- border-color: #442f2f;
+ border-color: #2b0809;
   padding: 5%;
 margin-bottom: 15%;
     justify-self: center;
-  background-color: #3a2323;
+  background-color: #4b0f10;
   }
 
 #start-button {
+   text-shadow: #000000 4px 1px 4px;
+  color:  #cec8d1;
+     font-size: larger;
+font-family: math;
+  border-color: #2b0809;
   margin: 20px;
-background-color: darkgray;
+background-color: #21824D;
  border-radius: 18px;
     align-self: auto;
 }

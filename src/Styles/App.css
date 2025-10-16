@@ -22,7 +22,6 @@
 .snake.head::after {
   content: "";
   position: absolute;
- 
   top: 30%;   
   width: 5px;
   height: 5px;
@@ -37,15 +36,43 @@
   right: 25%;            
 }
 
-.tail-vertical {
-  width: 14px;    
-  margin: auto;     
-}
-
+.tail-vertical,
 .tail-horizontal {
- 
-  height: 14px;     
-  border-radius: 10px;
+  background: #9acd32;
+  display: block;
   margin: auto;
 }
 
+.tail-vertical {
+  width: 16px;
+  height: 100%;
+}
+
+.tail-horizontal {
+  width: 100%;
+  height: 16px;
+}
+
+.main-instructions-txt {
+      -webkit-text-stroke-width: thin;
+      color: #f4f3ee;
+}
+
+#instructions {
+  margin-top: 3em;
+}
+
+#controls-text,
+#instructions{
+  border-radius: 6px;
+  background-color: #487a69;
+}
+
+#controls-div {
+      padding: 7px;
+    width: 10em;
+    height: 20em;
+ align-self: normal;
+  margin-top: 23px;
+background-color: #2b4e32;
+}

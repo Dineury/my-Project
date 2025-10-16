@@ -11,8 +11,8 @@ const ConsoleHud = ({ gameState, gameHandler, score }) => {
     <div className="consoleHud">
         {gameState === "gameover" && (
             <div> 
-                <h2 id="gameOver">Game Over</h2> <br></br>
-                score: {score}
+                <h2 id="gameOver">Game Over</h2> 
+               <h4 className="score">Last Score: {score}</h4>
             </div>
         )}
       {gameState !== "playing" && (
@@ -22,7 +22,7 @@ const ConsoleHud = ({ gameState, gameHandler, score }) => {
         )}
 
         {gameState === "playing" && (
-            <h4>score: {score}</h4>
+            <h4 className="score">score: {score}</h4>
         )}
       
     </div>

@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import './Styles/App.css'
 import './Styles/Console.css'
 import Grid from  './components/Grid'
-import Instructions from './components/Instructions.jsx'
+import Controls from './components/Controls.jsx'
+import Contacts from './components/Contacts.jsx'
 
 function App() {
   const [snakeMoving, setSnakeMoving] = useState("")
@@ -136,10 +137,12 @@ return (
 </div>
          
          <div id="grid-wrapper" >
+         <Contacts />
         <Grid snake={snake} food={food} gameState={gameState} gameHandler={handleGameButton} score={score}/>
+        <Controls />
         
-        <Instructions />
          </div>
+
       </div>
 
     </>
