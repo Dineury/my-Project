@@ -77,7 +77,7 @@ align-self: self-start;
 .github-link {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: .2rem;
   color: #cec8d1;               
   text-decoration: none;
   transition: color .2s ease;    
