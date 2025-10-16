@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './Styles/App.css'
 import './Styles/Console.css'
 import Grid from  './components/Grid'
-import Instructions from './components/Instructions'
+import Instructions from './components/Instructions.jsx'
 
 function App() {
   const [snakeMoving, setSnakeMoving] = useState("")
