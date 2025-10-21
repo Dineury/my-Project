@@ -21,7 +21,7 @@ html, body {
 #header {
   display: flex;
   justify-content: center;
-  background: linear-gradient(to bottom, #0f2404, #3c572e)
+  background: linear-gradient(to bottom, #192b25, #36633f)
 }
 
 #title-text {
